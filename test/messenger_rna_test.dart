@@ -68,6 +68,11 @@ void main() {
   });
 
   test('Check that it does not explode on a real world scenario', () {
+    int i = 0;
+    while (i != 10000) {
+      RNAm.fromNumbers(Iterable<int>.generate(Random().nextInt(1000), (int i) => Random().nextInt(4))).getGenes();
+      i++;
+    }
     final Iterable<int> numbers = Iterable<int>.generate(2000000, (int i) => Random().nextInt(4));
     final RNAm rna = RNAm.fromNumbers(numbers);
     final List<Gene> genes = rna.getGenes();

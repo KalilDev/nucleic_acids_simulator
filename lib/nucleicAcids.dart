@@ -69,12 +69,12 @@ class RNAm extends RNA {
     Gene getGene(int firstIdx) {
     int startIdx;
     int i = firstIdx ?? 0;
-    if (i == threeToFive.length)
+    if (i + 2 >= threeToFive.length)
       return null;
     while (startIdx == null) {
       final indexOfAdenine = threeToFive.indexOf(Nucleotide.Adenine, i);
 
-      if (indexOfAdenine == -1) {
+      if (indexOfAdenine == -1 || indexOfAdenine + 2 >= threeToFive.length) {
         return null;
       }
 
