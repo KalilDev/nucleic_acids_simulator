@@ -1,0 +1,22 @@
+enum AminoAcid {
+    Phenylalanine,
+    Leucine,
+    Isoleucine,
+    Methionine,
+    Valine,
+    Serine,
+    Proline,
+    Threonine,
+    Alanine,
+    Tyrosine,
+    Histidine,
+    Glutamine,
+    Aspargine,
+    Lysine,
+    AsparticAcid,
+    GlutamicAcid,
+    Cysteine,
+    Trytonphan,
+    Arginine,
+    Glycine
+}
