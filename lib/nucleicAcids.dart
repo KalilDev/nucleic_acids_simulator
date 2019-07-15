@@ -5,7 +5,7 @@ import 'gene.dart';
 
 class DNA extends NucleicAcid {
   DNA(List<Nucleotide> threeToFive)
-      : assert(threeToFive.any((Nucleotide n) => n == Nucleotide.Uracil)),
+      : assert(threeToFive.any((Nucleotide n) => n != Nucleotide.Uracil)),
         super(threeToFive);
   List<Nucleotide> get fiveToThree {
     return List<Nucleotide>.of(threeToFive.map((Nucleotide n) {
