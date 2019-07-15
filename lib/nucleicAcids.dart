@@ -8,25 +8,7 @@ class DNA extends NucleicAcid {
       : assert(threeToFive.any((Nucleotide n) => n != Nucleotide.Uracil)),
         super(threeToFive);
   List<Nucleotide> get fiveToThree {
-    return List<Nucleotide>.of(threeToFive.map((Nucleotide n) {
-      switch (n) {
-        case Nucleotide.Uracil:
-          return Nucleotide.Adenine;
-          break;
-        case Nucleotide.Thymine:
-          return Nucleotide.Adenine;
-          break;
-        case Nucleotide.Cytosine:
-          return Nucleotide.Guanine;
-          break;
-        case Nucleotide.Adenine:
-          return Nucleotide.Thymine;
-          break;
-        case Nucleotide.Guanine:
-          return Nucleotide.Cytosine;
-          break;
-      }
-    }));
+    return List<Nucleotide>.of(threeToFive.map((Nucleotide n) => inverseDNANucleotide(n)));
   }
 }
 
@@ -69,8 +51,9 @@ class RNAm extends RNA {
     Gene getGene(int firstIdx) {
     int startIdx;
     int i = firstIdx ?? 0;
-    if (i + 2 >= threeToFive.length)
+    if (i + 2 >= threeToFive.length) {
       return null;
+    }
     while (startIdx == null) {
       final indexOfAdenine = threeToFive.indexOf(Nucleotide.Adenine, i);
 
